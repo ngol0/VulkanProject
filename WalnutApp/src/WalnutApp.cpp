@@ -65,6 +65,8 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 	Walnut::Application* app = new Walnut::Application(spec);
 	std::shared_ptr<ExampleLayer> exampleLayer = std::make_shared<ExampleLayer>();
 	app->PushLayer(exampleLayer);
+
+	// Menu bar
 	app->SetMenubarCallback([app, exampleLayer]()
 	{
 		if (ImGui::BeginMenu("File"))
@@ -85,5 +87,6 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 			ImGui::EndMenu();
 		}
 	});
+
 	return app;
 }
